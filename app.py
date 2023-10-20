@@ -136,18 +136,14 @@ class App:
                 aluno.curso = self.cb_cursos.get()
                 aluno.nota = float(self.entry_nota.get())
                 messagebox.showinfo("Sucesso", "Dados atualizados")
-            self.limparCampos()
-            self.atualizaTabela()
 
+
+        self.limparCampos()
+        self.atualizaTabela()
+        print(self.alunos)
 
     def excluirAluno(self):
-        linha_selecionada = self.tabela.selection()[0]
-        item = self.tabela.item(linha_selecionada)['values']
-        if linha_selecionada:
-            self.alunos.remove(linha_selecionada[item])
-            self.limparCampos()
-            self.atualizaTabela()
-            messagebox.showinfo("Sucesso", "Aluno Deletado")
+        pass
 
 
 if __name__ == "__main__":
