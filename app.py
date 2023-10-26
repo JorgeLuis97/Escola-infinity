@@ -130,20 +130,26 @@ class App:
         matricula = self.entry_matricula.get()
 
         for aluno in self.alunos:
-            if aluno.matricula == matricula:
+            if str(aluno.matricula) == matricula:
                 aluno.nome = self.entry_nome.get()
                 aluno.idade = int(self.entry_idade.get())
                 aluno.curso = self.cb_cursos.get()
                 aluno.nota = float(self.entry_nota.get())
-                messagebox.showinfo("Sucesso", "Dados atualizados")
+        self.limparCampos()
+        self.atualizaTabela()
+        messagebox.showinfo("Sucesso", "Dados atualizados")
 
+    def excluirAluno(self):
+        matricula = self.entry_matricula.get()
+
+        for aluno in self.alunos:
+            if str(aluno.matricula) == matricula:
+                self.alunos.remove(aluno)
 
         self.limparCampos()
         self.atualizaTabela()
-        print(self.alunos)
+        messagebox.showinfo("Sucesso", "Dados Excluidos")
 
-    def excluirAluno(self):
-        pass
 
 
 if __name__ == "__main__":
